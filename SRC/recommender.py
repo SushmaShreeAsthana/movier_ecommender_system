@@ -2,13 +2,22 @@
 import pickle
 import pandas as pd
 import requests
-
-# Load pickled data
-movies = pickle.load(open('../data/movies.pkl', 'rb'))
+import os
 import gzip
-import pickle
+# Get the directory of the current file (recommender.py)
+current_dir = os.path.dirname(__file__)
 
-with gzip.open('../data/similarity.pkl.gz', 'rb') as f:
+# Construct the path to the movies.pkl file
+data_path = os.path.join(current_dir, '..', 'data', 'movies.pkl')
+
+# Normalize the path (optional but safer)
+data_path = os.path.normpath(data_path)
+movies = pickle.load(open(data_path, 'rb'))
+
+
+
+
+with gzip.open('data/similarity.pkl.gz', 'rb') as f:
     similarity = pickle.load(f)
 
 #similarity = pickle.load(open('data/similarity.pkl.gz', 'rb'))
