@@ -4,11 +4,11 @@ import pandas as pd
 import requests
 
 # Load pickled data
-movies = pickle.load(open('data/movies.pkl', 'rb'))
+movies = pickle.load(open('../data/movies.pkl', 'rb'))
 import gzip
 import pickle
 
-with gzip.open('data/similarity.pkl.gz', 'rb') as f:
+with gzip.open('../data/similarity.pkl.gz', 'rb') as f:
     similarity = pickle.load(f)
 
 #similarity = pickle.load(open('data/similarity.pkl.gz', 'rb'))
